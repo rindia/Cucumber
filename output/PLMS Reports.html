@@ -1,0 +1,1600 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/6d3843c29c354373fafad29c03a1a89b7e06c374/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>PLMS - Test Reports</title>
+
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>PLMS - Test Reports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Dec 13, 2017 06:55:14 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>v3.0.6</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='80%'><span class='strong'>4</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='20%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='90%'><span class='strong'>9</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='10%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='97.638%'><span class='strong'>124</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0.787%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='1.575%'>2</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>PLMS - Plant Master Features</span>
+						<span class='test-time'>Dec 13, 2017 06:55:14 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 12s+996ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Plant Master is working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='4' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='5' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='6' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='7' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='8' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Master Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='9' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Plant Master Link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='10' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click On Add Plant Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='11' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter PlantName</span>
+				<div class='pre'><table><tr><td>PlantName</td></tr><tr><td>helloPlant</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='12' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Plant Code</span>
+				<div class='pre'><table><tr><td>PlantCode</td></tr><tr><td>0007</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='13' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Unit Type</span>
+				<div class='pre'><table><tr><td>UnitType</td></tr><tr><td>MT</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='14' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Active</span>
+				<div class='pre'><table><tr><td>ActiveOption</td></tr><tr><td>plActive</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='15' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click Submit Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='16' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Data in Html Table</span>
+				<div class='pre'><table><tr><td>validationData</td></tr><tr><td>helloPlant</td></tr></table></div>
+				<div class='pre'>Save succesfully helloPlant</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='17' status='pass'>
+	<span class='duration right label'>0h 0m 11s+644ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Update Plant Master is working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='18' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='19' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='20' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='21' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='22' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='23' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Master Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='24' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Plant Master Link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='25' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on This Edit Button</span>
+				<div class='pre'><table><tr><td>Plantname</td></tr><tr><td>helloPlant</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='26' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter New Plant code</span>
+				<div class='pre'><table><tr><td>PlantCode</td></tr><tr><td>12345</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='27' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click on Submit Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='28' status='pass'>
+	<span class='duration right label'>0h 0m 11s+124ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Delete Plant Master is working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='29' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='30' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='31' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='32' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='33' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='34' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Master Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='35' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Plant Master Link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='36' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click This Delete Button</span>
+				<div class='pre'><table><tr><td>Plantname</td></tr><tr><td>helloPlant</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='37' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Yes Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='38'>
+					<div class='test-heading'>
+						<span class='test-name'>PLMS - Login Features</span>
+						<span class='test-time'>Dec 13, 2017 06:55:56 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='39' status='pass'>
+	<span class='duration right label'>0h 0m 8s+839ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify PLMS Login is Working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='40' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='41' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='42' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='43' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='44' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='45' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I see UserName on HomePage</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='46'>
+					<div class='test-heading'>
+						<span class='test-name'>TMS - Product Master Features</span>
+						<span class='test-time'>Dec 13, 2017 06:56:06 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='47' status='pass'>
+	<span class='duration right label'>0h 0m 11s+747ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Product Master is Working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='48' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='49' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='50' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='51' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='52' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='53' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Master Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='54' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Product Master link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='55' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click On Add Prodcut Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='56' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Product Name</span>
+				<div class='pre'><table><tr><td>ProductName</td></tr><tr><td>DemoProduct</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='57' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Product Code</span>
+				<div class='pre'><table><tr><td>ProductCode</td></tr><tr><td>123456</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='58' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Active/Inactive</span>
+				<div class='pre'><table><tr><td>Active</td></tr><tr><td>1</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='59' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on Add Product Submit Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='60' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Check Data Is Saved In HTML Table</span>
+				<div class='pre'><table><tr><td>CheckData</td></tr><tr><td>DemoProduct</td></tr></table></div>
+				<div class='pre'>Save succesfully DemoProduct</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='61' status='pass'>
+	<span class='duration right label'>0h 0m 11s+564ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Update Product Master is Working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='62' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='63' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='64' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='65' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='66' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='67' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Master Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='68' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Product Master link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='69' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on This Product Edit Button</span>
+				<div class='pre'><table><tr><td>ProductName</td></tr><tr><td>DemoProduct</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='70' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Update Plant Code Value</span>
+				<div class='pre'><table><tr><td>PlantCode</td></tr><tr><td>98798</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='71' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click Update Submit Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='72' status='pass'>
+	<span class='duration right label'>0h 0m 11s+148ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Delete Product Master is Working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='73' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='74' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='75' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='76' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='77' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='78' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Master Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='79' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Product Master link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='80' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on This Product Delete Button</span>
+				<div class='pre'><table><tr><td>ProductName</td></tr><tr><td>DemoProduct</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='81' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click Yes This Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='82'>
+					<div class='test-heading'>
+						<span class='test-name'>TMS - User Master Features</span>
+						<span class='test-time'>Dec 13, 2017 06:56:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='83' status='pass'>
+	<span class='duration right label'>0h 0m 19s+522ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify User Master is Working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='84' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='85' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='86' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='87' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='88' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='89' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click on Master Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='90' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click on User Master Link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='91' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on Register User Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='92' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter User Name</span>
+				<div class='pre'><table><tr><td>User Name</td></tr><tr><td>DemoUser</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='93' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click Multi Login Check Box</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='94' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter First Name</span>
+				<div class='pre'><table><tr><td>First Name</td></tr><tr><td>Demo First Name</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='95' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Last Name</span>
+				<div class='pre'><table><tr><td>Last Name</td></tr><tr><td>Demo Last Name</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='96' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Mobile Number</span>
+				<div class='pre'><table><tr><td>Mobile number</td></tr><tr><td>9897120123</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='97' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Role</span>
+				<div class='pre'><table><tr><td>Role</td></tr><tr><td>Admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='98' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Password</span>
+				<div class='pre'><table><tr><td>Password</td></tr><tr><td>123456</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='99' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Confirm Password</span>
+				<div class='pre'><table><tr><td>Cpassword</td></tr><tr><td>123456</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='100' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Active User Registration</span>
+				<div class='pre'><table><tr><td>Active</td></tr><tr><td>1</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='101' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I click on User Registration Submit Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='102' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I check Registered User Should Visibile in HTML Table</span>
+				<div class='pre'><table><tr><td>First Name</td></tr><tr><td>Demo First Name</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='103'>
+					<div class='test-heading'>
+						<span class='test-name'>PLMS - Vehicle Master Features</span>
+						<span class='test-time'>Dec 13, 2017 06:57:05 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='104' status='pass'>
+	<span class='duration right label'>0h 0m 51s+107ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Vehicle Master is working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='105' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='106' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='107' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='108' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='109' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='110' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click On Vehicle Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='111' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Vehicle Master Link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='112' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I See Text Present on Page</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='113' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click On Add New vehicle button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='114' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Vehicle Number</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='115' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Model</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='116' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Vehicle Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='117' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Raw Material</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='118' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select No of Wheels</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='119' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Fleet Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='120' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Transporter Name</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='121' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Insurance Policy Expiry Date</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='122' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Fitness Renewal Date From</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='123' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Fitness Renewal Date To</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='124' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Pollution certificate number</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='125' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Pollution Expiry Date</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='126' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Enter Insurance Policy Number</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='127' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Select Year Of Manufacturing</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='128' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Check Is Canter</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='129' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click On Save Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='130' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Verify Data in Html Table</span>
+				<div class='pre'><table><tr><td>VehicleNumber</td></tr><tr><td>Hr7798700</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='131' status='fail'>
+	<span class='duration right label'>0h 0m 31s+735ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Verify Update Vehicle Master is working</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='132' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I Open PLMS Url</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='133' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I See Login Page</span>
+				<div class='pre'>TMS | Login</div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='134' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Select Plant Type</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='135' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Enter Admin Correct UserName and Password userName</span>
+				<div class='pre'><table><tr><td>UserName</td><td>Password</td></tr><tr><td>jkCement</td><td>admin</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='136' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Login Button</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='137' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click On Vehicle Tab</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='138' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I Click On Vehicle Master Link</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='139' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Click On Edit Against Vehicle number</span>
+				<div class='pre'><table><tr><td>Vehicle_number</td></tr><tr><td>DL78TR09</td></tr></table></div>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='140' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Update Model Number</span>
+				<div class='pre'><table><tr><td>ModelNoUpdated</td></tr><tr><td>5489854</td></tr></table></div>
+				<div class='pre'><pre>org.openqa.selenium.TimeoutException: Timed out after 10 seconds waiting for visibility of element located by By.id: ModelNumber1
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'DESKTOP-D6J0JOO', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f), userDataDir=C:\Users\Amazin\AppData\Local\Temp\scoped_dir18304_5161}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=63.0.3239.84, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: af3f6499c07e24515562e115f25b8dda
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at framework.utilities.WebElementExtension.GetWhenVisible(WebElementExtension.java:52)
+	at pages.VehicleMasterPage.UpdatemodelNumberText(VehicleMasterPage.java:250)
+	at steps.VehicleMasterSteps.iUpdateModelNumber(VehicleMasterSteps.java:146)
+	at ✽.Then I Update Model Number(vehcileMaster.feature:48)
+</pre></div>
+			
+		</li>
+		<li test-id='141' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I Choose TransporterName</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='142' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I click On Update Button</span>
+			<ul class='screenshots right'>
+				<li><a data-featherlight="image" href="images/9991.png"><i class='material-icons'>panorama</i></a></li>
+			</ul>
+				<div class='pre'>skipped</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.TimeoutException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Dec 13, 2017 06:58:19 PM</td>
+                                                        <td class='linked' test-id='140'>PLMS - Vehicle Master Features.Verify Update Vehicle Master is working.Then I Update Model Number</td>
+                                                        <td><pre><pre>org.openqa.selenium.TimeoutException: Timed out after 10 seconds waiting for visibility of element located by By.id: ModelNumber1
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'DESKTOP-D6J0JOO', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.33.506120 (e3e53437346286c0bc2d2dc9aa4915ba81d9023f), userDataDir=C:\Users\Amazin\AppData\Local\Temp\scoped_dir18304_5161}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=63.0.3239.84, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: af3f6499c07e24515562e115f25b8dda
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at framework.utilities.WebElementExtension.GetWhenVisible(WebElementExtension.java:52)
+	at pages.VehicleMasterPage.UpdatemodelNumberText(VehicleMasterPage.java:250)
+	at steps.VehicleMasterSteps.iUpdateModelNumber(VehicleMasterSteps.java:146)
+	at ✽.Then I Update Model Number(vehcileMaster.feature:48)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>5</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>10</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>127</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Dec 13, 2017 06:55:14 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Dec 13, 2017 06:58:31 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>197,161ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>user</td>
+								<td>Amazin</td>
+							</tr>
+							<tr>
+								<td>os</td>
+								<td>Windows 10</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 4,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 9,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 1,
+				
+				passGrandChild: 124,
+				failGrandChild: 1,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 2,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 3,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/5ed7b0c339b51aa347b44ccaa2e2ff29905b2f9f/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+	</body>
+	
+</html>

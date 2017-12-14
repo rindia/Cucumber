@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extentreports>
+    <configuration>
+        <encoding>UTF-8</encoding>
+        <documentTitle>PLMS - Test Reports</documentTitle>
+        <reportName>PLMS - Test Reports</reportName>
+        <reportHeadline> - v1.0.0</reportHeadline>
+    </configuration>
+</extentreports>
