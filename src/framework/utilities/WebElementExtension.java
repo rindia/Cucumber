@@ -6,9 +6,7 @@ import framework.base.DriverContext;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class WebElementExtension {
     public static void scrollingByCoordinatesofAPage(int x, int y) {
@@ -119,6 +118,10 @@ public class WebElementExtension {
                 .invisibilityOfElementLocated(by));
     }
 
+    public static void ExpectedConditionsAfterPagerefresh(By by) {
+        new WebDriverWait(DriverContext.Driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
     public static void SelectDropDownList(By by, String value) {
         Select select = new Select(DriverContext.Driver.findElement(by));
         select.selectByValue(value);
@@ -214,7 +217,7 @@ public class WebElementExtension {
             int columns_count = Column_rows.size();
             for (int column = 0; column < columns_count; column++) {
                 String celltext = Column_rows.get(column).getText();
-                System.out.println("cell text--- " + celltext);
+                //System.out.println("cell text--- " + celltext);
                 if (celltext.equalsIgnoreCase(vehiclenumber)) {
                     WebElementExtension.javaScriptExcuterClick("arguments[0].click();", el);
                     break;
@@ -225,34 +228,55 @@ public class WebElementExtension {
 
     public static void verifyTableData(By by, String Name) throws InterruptedException {
         WebElementExtension.waitForJStoLoad();
-        WebElementExtension.presenceOfElementLocated(by, 20);
+        Thread.sleep(5000);
+        GetWhenVisible(by,10);
+        DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Name);
+        List<WebElement> ls = DriverContext.Driver.findElements(by);
+        int size = ls.size();
 
-        outerLoop:
+        System.out.println("datatable size "+size);
+
+        for (int i=0;i<size;i++)
         {
+            System.out.println(ls.get(i).getText());
+            String celltext = ls.get(i).getText();
+            Assert.assertEquals("Data is not available",ls.get(i).getText(),Name);
+            break;
+
+        }
+
+
+        //outerLoop:
+        /*{
+
             for (int i = 0; i < 4; i++) {
+                final WebDriverWait wait = new WebDriverWait(DriverContext.Driver, 10);
+                wait.until(ExpectedConditions.refreshed(
+                        ExpectedConditions.presenceOfElementLocated(by)));
+
 
                 WebElement mytable = DriverContext.Driver.findElement(by);
                 List<WebElement> rows_table = mytable.findElements(By.tagName("tr"));
                 int rows_count = rows_table.size();
-                System.out.println("no of rows " + rows_count);
+
                 for (int row = 0; row < rows_count; row++) {
                     List<WebElement> Column_rows = rows_table.get(row).findElements(By.tagName("td"));
                     int columns_count = Column_rows.size();
                     for (int column = 0; column < columns_count; column++) {
                         String celltext = Column_rows.get(column).getText();
                         System.out.println("cell text name " + celltext);
-                        if (celltext.equalsIgnoreCase(Name) || celltext.equals(Name)) {
+                        if (celltext.equals(Name.trim())) {
+                            System.out.println("innner fdsfshf-----------");
                             Reporter.addStepLog("Save succesfully " + Column_rows.get(column).getText());
                             break outerLoop;
                         }
-
                     }
                 }
             }
-
-        }
+        }*/
 
     }
+
 
     public static void ScrollToElement(WebElement element) {
         ((JavascriptExecutor) DriverContext.Driver).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -268,6 +292,18 @@ public class WebElementExtension {
         } else if (action.equals("cancel")) {
             alert.dismiss();
         }
+    }
+
+    public static void checkData(By by, String data) {
+
+
+         WebElement el = DriverContext.Driver.findElement(By.xpath("//td[contains(text(),'"+data+"')]"));
+         System.out.println("-----------ppp" +el.toString());
+         if(el.getText().equals(data))
+         {
+             System.out.println("-----------dasjkdhasjdhjasd-----------------");
+         }
+
     }
 
 }

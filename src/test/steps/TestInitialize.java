@@ -42,9 +42,10 @@ public class TestInitialize extends FrameworkInitialize {
         Settings.Logs.Write("Browser Initialized");
         DriverContext.Driver.manage().deleteAllCookies();
         DriverContext.Browser.GoToUrl(Settings.AUT);
-        Settings.Logs.Write("Navigated to URL " + Settings.AUT);
+
+       // Settings.Logs.Write("Navigated to URL " + Settings.AUT);
         DriverContext.Driver.manage().window().maximize();
-        DriverContext.Driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        DriverContext.Driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 
     }

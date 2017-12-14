@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PlantMasterPage extends BasePage {
 
@@ -19,6 +21,7 @@ public class PlantMasterPage extends BasePage {
     private static final String SelectUnitTypeByID = "uomType";
     private static final String ActiveInactiveByXpath = ".//*[@id='radioForm']/input";
     private static final String SubmitBtnXpath = "//button[@onclick='addPlantDetails()']";
+    private static final String tablexpath = "//table[@id='plantTable']/tbody";
     /*End  Add plant Master Path*/
 
 
@@ -61,6 +64,9 @@ public class PlantMasterPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = SubmitBtnXpath)
     private WebElement SubmitBtn;
+
+    @FindBy(how = How.XPATH, using = tablexpath)
+    private WebElement table;
      /*End  Add plant Master WebElement*/
 
 
@@ -126,11 +132,7 @@ public class PlantMasterPage extends BasePage {
         WebElementExtension.GetWhenVisible(By.xpath(AddPlantBtnByXpath), 10);
     }
         public void veifyData(String value) throws InterruptedException {
-
-
-            WebElementExtension.presenceOfElementLocated(By.xpath("//div[@class='x_title']/h2"),10);
-
-            WebElementExtension.verifyTableData(By.xpath("//table[@id='plantTable']/tbody"),value);
+            WebElementExtension.verifyTableData(By.xpath("//tbody/tr/td"),value);
         }
 
          /*End  Add plant Master Function*/

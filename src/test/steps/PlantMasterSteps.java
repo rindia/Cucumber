@@ -60,7 +60,7 @@ public class PlantMasterSteps extends Base{
 
     @Then("^I See Data in Html Table$")
     public void iSeeDataInHtmlTable(DataTable table) throws Throwable {
-        WebElementExtension.presenceOfElementLocated(By.xpath("//div[@class='x_title']/h2"),10);
+
         CucumberUtil.ConvertDataTableToDict(table);
         CurrentPage.As(PlantMasterPage.class).veifyData(CucumberUtil.GetCellValue("validationData"));
 

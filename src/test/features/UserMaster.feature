@@ -38,5 +38,5 @@ Feature: TMS - User Master Features
       |1|
     Then I click on User Registration Submit Button
     And I check Registered User Should Visibile in HTML Table
-    |First Name|
-    |Demo First Name|
+    |User Name|
+    |DemoUser|

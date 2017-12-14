@@ -83,6 +83,6 @@ public class UserMasterSteps extends Base {
     @And("^I check Registered User Should Visibile in HTML Table$")
     public void iCheckRegisteredUserShouldVisibileInHTMLTable(DataTable table) throws Throwable {
         CucumberUtil.ConvertDataTableToDict(table);
-        CurrentPage.As(UserMasterPage.class).checkData(CucumberUtil.GetCellValue("First Name"));
+        CurrentPage.As(UserMasterPage.class).checkData(CucumberUtil.GetCellValue("User Name"));
     }
 }

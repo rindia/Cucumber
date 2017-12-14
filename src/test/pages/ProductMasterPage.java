@@ -106,6 +106,8 @@ public class ProductMasterPage extends BasePage {
     public void clickSaveBtn()
     {
         SaveProductMasterBtn.click();
+        WebElementExtension.waitForJStoLoad();
+
     }
     //End Product Master Functions
 
@@ -136,7 +138,7 @@ public class ProductMasterPage extends BasePage {
 
     public void  checkData(String value) throws InterruptedException {
         WebElementExtension.presenceOfElementLocated(By.xpath("//div[@class='x_title']/h2"),10);
-        WebElementExtension.verifyTableData(By.xpath("//table[@id='productTable']/tbody"),value);
+        WebElementExtension.verifyTableData(By.xpath("//tbody/tr/td"),value);
 
     }
     //End Update Product Master Functions

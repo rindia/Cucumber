@@ -127,11 +127,11 @@ public class UserMasterPage extends BasePage {
           saveUserBtn.click();
           WebElementExtension.alert("ok");
           WebElementExtension.alert("ok");
+
       }
 
       public void checkData(String data) throws InterruptedException {
-          WebElementExtension.presenceOfElementLocated(By.xpath("//div[@class='x_title']/h2"),10);
-          WebElementExtension.verifyTableData(By.xpath(tableXpath),data);
+          WebElementExtension.verifyTableData(By.xpath("//tbody/tr/td"),data);
       }
 
 
