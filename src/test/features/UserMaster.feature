@@ -13,7 +13,7 @@ Feature: TMS - User Master Features
     Then I click on Register User Button
     And I Enter User Name
     |User Name|
-    |DemoUser|
+    |Dummy User Name|
     And I Click Multi Login Check Box
     And I Enter First Name
       |First Name|
@@ -23,7 +23,7 @@ Feature: TMS - User Master Features
       |Demo Last Name|
     And I Enter Mobile Number
       |Mobile number|
-      |9897120123|
+      |9717559062|
     And  I Select Role
       |Role|
       |Admin|
@@ -39,4 +39,26 @@ Feature: TMS - User Master Features
     Then I click on User Registration Submit Button
     And I check Registered User Should Visibile in HTML Table
     |User Name|
-    |DemoUser|
+    |Dummy User Name|
+
+  Scenario: Verify Update User Master is Working
+    When I Open PLMS Url
+    Then I See Login Page
+    Then I Select Plant Type
+    Then I Enter Admin Correct UserName and Password userName
+      | UserName | Password |
+      | jkCement | admin    |
+    And I Click On Login Button
+    Then I Click on Master Tab
+    And I Click on User Master Link
+    Then I click on User This Edit Button
+      |User Name|
+      |Dummy User Name|
+    Then I Enter Update User Name
+    |UserName|
+    | update user name       |
+    And I Click on Update User Button
+    Then I check validate UserName in HTML Page
+      |UserName|
+      | update user name       |
+

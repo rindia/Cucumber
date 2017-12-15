@@ -1,6 +1,7 @@
 package pages;
 
 import framework.base.BasePage;
+import framework.base.DriverContext;
 import framework.utilities.WebElementExtension;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,8 +28,7 @@ public class UserMasterPage extends BasePage {
 
     /*Start Edit UserMaster Path*/
     private static final String editBtnXpath = "//button[@onclick='getRowData(this.id)']";
-    private static final String editUserFirstNameXpath = "editUserFirstName";
-    private static final String editUserLastNameXpath = "editUserLastName";
+    private static final String editUserNameByID = "editUserName";
     private static final String updateUserBtnXpath = "//input[@onclick='editUserDetails()']";
     /*End Edit UserMaster Path*/
 
@@ -69,6 +69,21 @@ public class UserMasterPage extends BasePage {
     @FindBy(how = How.XPATH, using = saveUserBtnXpath)
     private WebElement saveUserBtn;
      /*End Add UserMaster Webelement*/
+
+
+     /*Start Edit UserMaster Webelement*/
+
+     @FindBy(how = How.XPATH,using = editBtnXpath)
+     private WebElement editBtn;
+
+     @FindBy(how = How.ID,using = editUserNameByID)
+     private WebElement editUserName;
+
+    @FindBy(how = How.XPATH,using = updateUserBtnXpath)
+    private WebElement updateUserBtn;
+     /*End Edit UserMaster Webelement*/
+
+
 
       /*Start Add UserMaster Functions*/
       public void clickUserMasterLink()
@@ -133,6 +148,34 @@ public class UserMasterPage extends BasePage {
       public void checkData(String data) throws InterruptedException {
           WebElementExtension.verifyTableData(By.xpath("//tbody/tr/td"),data);
       }
+      /*End Add UserMaster Functions*/
 
+
+       /*Start Update UserMaster Functions*/
+
+       public void clickEditBtn(String data)
+       {
+           DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).sendKeys(data);
+           editBtn.click();
+       }
+
+       public void enterUpdateUserName(String data)
+       {
+           WebElementExtension.GetWhenVisible(By.id(editUserNameByID),10);
+           editUserName.clear();
+           editUserName.sendKeys(data);
+       }
+
+       public void clickUpdateBtn()
+       {
+           updateUserBtn.click();
+       }
+
+       public void checkUpdateData(String data) throws InterruptedException {
+           DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).clear();
+           DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).sendKeys(data);
+           WebElementExtension.verifyTableData(By.xpath("//tbody/tr/td"),data);
+       }
+        /*End Update UserMaster Functions*/
 
 }

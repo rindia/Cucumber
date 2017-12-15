@@ -6,7 +6,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import framework.base.Base;
 import framework.utilities.CucumberUtil;
+import framework.utilities.WebElementExtension;
 import gherkin.lexer.Da;
+import gherkin.lexer.Th;
 import pages.UserMasterPage;
 
 public class UserMasterSteps extends Base {
@@ -84,5 +86,23 @@ public class UserMasterSteps extends Base {
     public void iCheckRegisteredUserShouldVisibileInHTMLTable(DataTable table) throws Throwable {
         CucumberUtil.ConvertDataTableToDict(table);
         CurrentPage.As(UserMasterPage.class).checkData(CucumberUtil.GetCellValue("User Name"));
+    }
+
+    @Then("^I click on User This Edit Button$")
+    public void iClickOnUserThisEditButton(DataTable table) throws Throwable {
+        CucumberUtil.ConvertDataTableToDict(table);
+        CurrentPage.As(UserMasterPage.class).clickEditBtn(CucumberUtil.GetCellValue("User Name"));
+    }
+
+    @And("^I Click on Update User Button$")
+    public void iClickOnUpdateUserButton() throws Throwable {
+        CurrentPage.As(UserMasterPage.class).clickUpdateBtn();
+        WebElementExtension.alert("ok");
+    }
+
+    @Then("^I check validate UserName in HTML Page$")
+    public void iCheckValidateUserNameInHTMLPage(DataTable table) throws Throwable {
+        CucumberUtil.ConvertDataTableToDict(table);
+        CurrentPage.As(UserMasterPage.class).checkUpdateData(CucumberUtil.GetCellValue("UserName"));
     }
 }

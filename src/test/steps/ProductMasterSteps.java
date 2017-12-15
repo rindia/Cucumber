@@ -10,6 +10,7 @@ import framework.utilities.WebElementExtension;
 import org.openqa.selenium.By;
 import pages.PlantMasterPage;
 import pages.ProductMasterPage;
+import pages.UserMasterPage;
 
 import javax.xml.crypto.Data;
 
@@ -80,5 +81,11 @@ public class ProductMasterSteps extends Base {
     @Then("^I click Yes This Button$")
     public void iClickYesThisButton() throws Throwable {
         CurrentPage.As(ProductMasterPage.class).clickYesBtn();
+    }
+
+    @Then("^I Enter Update User Name$")
+    public void iEnterUpdateUserName(DataTable table) throws Throwable {
+       CucumberUtil.ConvertDataTableToDict(table);
+       CurrentPage.As(UserMasterPage.class).enterUpdateUserName(CucumberUtil.GetCellValue("UserName"));
     }
 }

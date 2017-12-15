@@ -230,6 +230,7 @@ public class WebElementExtension {
         WebElementExtension.waitForJStoLoad();
         Thread.sleep(5000);
         GetWhenVisible(by,10);
+        DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).clear();
         DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Name);
         List<WebElement> ls = DriverContext.Driver.findElements(by);
         int size = ls.size();
@@ -283,7 +284,7 @@ public class WebElementExtension {
     }
 
     public static void alert(String action) {
-        new WebDriverWait(DriverContext.Driver, 30)
+        new WebDriverWait(DriverContext.Driver, 65)
                 .ignoring(NoAlertPresentException.class)
                 .until(ExpectedConditions.alertIsPresent());
         Alert alert = DriverContext.Driver.switchTo().alert();
