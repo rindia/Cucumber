@@ -1,5 +1,6 @@
 package pages;
 
+import com.cucumber.listener.Reporter;
 import framework.base.BasePage;
 import framework.base.DriverContext;
 import framework.utilities.WebElementExtension;
@@ -7,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
 
 public class UserMasterPage extends BasePage {
 
@@ -175,6 +177,7 @@ public class UserMasterPage extends BasePage {
            DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).clear();
            DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).sendKeys(data);
            WebElementExtension.verifyTableData(By.xpath("//tbody/tr/td"),data);
+
        }
         /*End Update UserMaster Functions*/
 

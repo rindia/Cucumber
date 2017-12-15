@@ -6,6 +6,9 @@ import framework.base.DriverContext;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.ui.*;
 
 import java.text.DateFormat;
@@ -229,19 +232,19 @@ public class WebElementExtension {
     public static void verifyTableData(By by, String Name) throws InterruptedException {
         WebElementExtension.waitForJStoLoad();
         Thread.sleep(5000);
-        GetWhenVisible(by,10);
+        GetWhenVisible(by, 10);
         DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).clear();
         DriverContext.Driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Name);
         List<WebElement> ls = DriverContext.Driver.findElements(by);
         int size = ls.size();
 
-        System.out.println("datatable size "+size);
+        System.out.println("datatable size " + size);
 
-        for (int i=0;i<size;i++)
-        {
+        for (int i = 0; i < size; i++) {
             System.out.println(ls.get(i).getText());
             String celltext = ls.get(i).getText();
-            Assert.assertEquals("Data is not available",ls.get(i).getText(),Name);
+            Assert.assertEquals("Data is not available", ls.get(i).getText(), Name);
+
             break;
 
         }
@@ -298,13 +301,14 @@ public class WebElementExtension {
     public static void checkData(By by, String data) {
 
 
-         WebElement el = DriverContext.Driver.findElement(By.xpath("//td[contains(text(),'"+data+"')]"));
-         System.out.println("-----------ppp" +el.toString());
-         if(el.getText().equals(data))
-         {
-             System.out.println("-----------dasjkdhasjdhjasd-----------------");
-         }
+        WebElement el = DriverContext.Driver.findElement(By.xpath("//td[contains(text(),'" + data + "')]"));
+        System.out.println("-----------ppp" + el.toString());
+        if (el.getText().equals(data)) {
+            System.out.println("-----------dasjkdhasjdhjasd-----------------");
+        }
 
     }
+
+
 
 }
