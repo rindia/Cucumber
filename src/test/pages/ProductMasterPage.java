@@ -1,9 +1,7 @@
 package pages;
 
-import com.sun.imageio.plugins.wbmp.WBMPImageReader;
 import framework.base.BasePage;
 import framework.base.DriverContext;
-import framework.utilities.CucumberUtil;
 import framework.utilities.WebElementExtension;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

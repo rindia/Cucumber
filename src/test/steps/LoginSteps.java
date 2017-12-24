@@ -2,6 +2,7 @@ package steps;
 
 import com.cucumber.listener.Reporter;
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -33,11 +34,11 @@ public class LoginSteps extends Base{
         CurrentPage.As(LoginPage.class).selectPlantType("5");
     }
 
-    @Then("^I Enter Admin Correct UserName and Password userName$")
-    public void iEnterAdminCorrectUserNameAndPasswordUserName(DataTable table) throws Throwable {
-        List<List<String>> data = table.raw();
-       CurrentPage.As(LoginPage.class).enterUserNamePassword(data.get(1).get(0),data.get(1).get(1));
-    }
+   /* @Then("^I Enter Admin Correct UserName as \"([^\"]*)\" and and Password as \"([^\"]*)\"$")
+    public void iEnterAdminCorrectUserNameAndPasswordUserName(String UserName, String Password) throws Throwable {
+       // List<List<String>> data = table.raw();
+       CurrentPage.As(LoginPage.class).enterUserNamePassword(UserName, Password);
+    }*/
 
     @And("^I Click On Login Button$")
     public void iClickOnLoginButton() throws Throwable {
@@ -48,4 +49,11 @@ public class LoginSteps extends Base{
     public void iSeeUserNameOnHomePage() throws Throwable {
         System.out.println("k");
     }
+
+    @When("^I enter Username as \"([^\"]*)\" and Password as \"([^\"]*)\"$")
+    public void I_enter_Username_as_and_Password_as(String arg1, String arg2) throws Throwable{
+        CurrentPage.As(LoginPage.class).enterUserNamePassword(arg1, arg2);
+    }
+
+
 }
